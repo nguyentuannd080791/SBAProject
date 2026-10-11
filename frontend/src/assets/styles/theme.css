@@ -1,0 +1,44 @@
+:root {
+  --hf-primary: #15803d;
+  --hf-primary-hover: #166534;
+  --hf-secondary: #ea580c;
+  --hf-background: #f6fbf4;
+  --hf-foreground: #0f172a;
+  --hf-border: #dbe7d6;
+
+  --bs-primary: var(--hf-primary);
+  --bs-primary-rgb: 21, 128, 61;
+  --bs-body-bg: var(--hf-background);
+  --bs-body-color: var(--hf-foreground);
+  --bs-body-font-family: 'Nunito Sans', system-ui, sans-serif;
+  --bs-border-color: var(--hf-border);
+  --bs-link-color: var(--hf-primary);
+  --bs-link-hover-color: var(--hf-primary-hover);
+}
+
+h1, h2, h3, h4, h5, h6, .navbar-brand {
+  font-family: 'Rubik', system-ui, sans-serif;
+}
+
+.btn-primary {
+  --bs-btn-bg: var(--hf-primary);
+  --bs-btn-border-color: var(--hf-primary);
+  --bs-btn-hover-bg: var(--hf-primary-hover);
+  --bs-btn-hover-border-color: var(--hf-primary-hover);
+  --bs-btn-active-bg: var(--hf-primary-hover);
+  --bs-btn-active-border-color: var(--hf-primary-hover);
+  --bs-btn-disabled-bg: var(--hf-primary);
+  --bs-btn-disabled-border-color: var(--hf-primary);
+}
+
+.btn, .form-control, .form-select {
+  min-height: 44px;
+}
+
+.btn, .nav-link {
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}

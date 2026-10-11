@@ -1,0 +1,54 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "fullName": "Khách Hàng Mẫu",
+      "email": "customer@healthy.vn",
+      "phone": "0900000001",
+      "password": "123456",
+      "role": "customer",
+      "status": "active",
+      "emailVerified": true
+    },
+    {
+      "id": 2,
+      "fullName": "Nhân Viên Mẫu",
+      "email": "staff@healthy.vn",
+      "phone": "0900000002",
+      "password": "123456",
+      "role": "staff",
+      "status": "active",
+      "emailVerified": true
+    },
+    {
+      "id": 3,
+      "fullName": "Quản Lý Mẫu",
+      "email": "manager@healthy.vn",
+      "phone": "0900000003",
+      "password": "123456",
+      "role": "manager",
+      "status": "active",
+      "emailVerified": true
+    },
+    {
+      "id": 4,
+      "fullName": "Quản Trị Viên Mẫu",
+      "email": "admin@healthy.vn",
+      "phone": "0900000004",
+      "password": "123456",
+      "role": "administrator",
+      "status": "active",
+      "emailVerified": true
+    },
+    {
+      "id": 5,
+      "fullName": "Tài Xế Mẫu",
+      "email": "delivery@healthy.vn",
+      "phone": "0900000005",
+      "password": "123456",
+      "role": "delivery_partner",
+      "status": "active",
+      "emailVerified": true
+    }
+  ]
+}
