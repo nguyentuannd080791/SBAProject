@@ -21,4 +21,8 @@ export const authApi = {
   async markEmailVerified(userId) {
     await httpClient.patch(`/users/${userId}`, { emailVerified: true });
   },
+
+  async updatePassword(userId, password) {
+    await httpClient.patch(`/users/${userId}`, { password });
+  },
 };

@@ -48,6 +48,19 @@ export function validatePasswordConfirmation(password, confirmation) {
   return "";
 }
 
+export function validateCurrentPassword(value) {
+  if (!value) return "Vui lòng nhập mật khẩu hiện tại.";
+  return "";
+}
+
+export function validateChangedPassword(currentPassword, newPassword) {
+  const error = validateNewPassword(newPassword);
+  if (error) return error;
+  if (newPassword === currentPassword)
+    return "Mật khẩu mới phải khác mật khẩu hiện tại.";
+  return "";
+}
+
 export function validateVerificationCode(value) {
   if (!value.trim()) return "Vui lòng nhập mã xác thực.";
   if (!codePattern.test(value.trim())) return "Mã xác thực gồm 6 chữ số.";
@@ -78,5 +91,35 @@ export function validateVerifyEmailValues(values) {
   return collectErrors({
     email: validateEmail(values.email),
     code: validateVerificationCode(values.code),
+  });
+}
+
+export function validateForgotPasswordValues(values) {
+  return collectErrors({ email: validateEmail(values.email) });
+}
+
+export function validateResetPasswordValues(values) {
+  return collectErrors({
+    email: validateEmail(values.email),
+    code: validateVerificationCode(values.code),
+    password: validateNewPassword(values.password),
+    confirmPassword: validatePasswordConfirmation(
+      values.password,
+      values.confirmPassword,
+    ),
+  });
+}
+
+export function validateChangePasswordValues(values) {
+  return collectErrors({
+    currentPassword: validateCurrentPassword(values.currentPassword),
+    newPassword: validateChangedPassword(
+      values.currentPassword,
+      values.newPassword,
+    ),
+    confirmPassword: validatePasswordConfirmation(
+      values.newPassword,
+      values.confirmPassword,
+    ),
   });
 }

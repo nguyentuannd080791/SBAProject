@@ -22,6 +22,7 @@ export function UserMenu() {
   return (
     <div className="d-flex align-items-center gap-3">
       <span>{user.fullName}</span>
+      <Link to="/change-password">Đổi mật khẩu</Link>
       <Button variant="outline-primary" size="sm" onClick={handleLogout}>
         Đăng xuất
       </Button>

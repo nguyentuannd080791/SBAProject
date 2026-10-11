@@ -32,6 +32,9 @@ export function LoginPage() {
         isSubmitting={isSubmitting}
       />
       <p className="mt-3 mb-0 text-center">
+        <Link to="/forgot-password">Quên mật khẩu?</Link>
+      </p>
+      <p className="mt-1 mb-0 text-center">
         Chưa có tài khoản? <Link to="/register">Đăng ký</Link>
       </p>
       <p className="mt-1 mb-0 text-center">
