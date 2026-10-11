@@ -1,3 +1,3 @@
-export const homeRoutes = [
-  { index: true, element: <h1 className="h3">Healthy Food System</h1> },
-]
+import { RoleHomeRedirect } from "../RoleHomeRedirect";
+
+export const homeRoutes = [{ index: true, element: <RoleHomeRedirect /> }];
