@@ -1,8 +1,7 @@
 import { authApi } from "../api/authApi";
+import { connectionError } from "../utils/messages";
 import { getLoginRejection } from "../utils/loginRules";
 import { toSessionUser } from "../utils/sessionUser";
-
-const connectionError = "Không thể kết nối máy chủ. Vui lòng thử lại.";
 
 export async function loginUser(email, password, api = authApi) {
   try {
