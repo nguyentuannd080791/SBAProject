@@ -8,9 +8,9 @@ export function createTokenApi(collection) {
 
     async findLatestByUserId(userId) {
       const response = await httpClient.get(`/${collection}`, {
-        params: { userId, _sort: "id", _order: "desc", _limit: 1 },
+        params: { userId },
       });
-      return response.data[0] ?? null;
+      return response.data[response.data.length - 1] ?? null;
     },
 
     async markUsed(tokenId) {
