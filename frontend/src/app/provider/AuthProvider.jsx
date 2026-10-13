@@ -14,13 +14,19 @@ export function AuthProvider({ children }) {
     setUser(sessionUser);
   }
 
+  function updateUser(changes) {
+    const updatedUser = { ...user, ...changes };
+    saveSessionUser(updatedUser);
+    setUser(updatedUser);
+  }
+
   function logout() {
     clearSessionUser();
     setUser(null);
   }
 
   return (
-    <AuthContext.Provider value={{ user, login, logout }}>
+    <AuthContext.Provider value={{ user, login, updateUser, logout }}>
       {children}
     </AuthContext.Provider>
   );

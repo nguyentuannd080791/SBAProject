@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "fullName": "Khách Hàng Mẫu",
       "email": "customer@healthy.vn",
       "phone": "0900000001",
@@ -11,7 +11,7 @@
       "emailVerified": true
     },
     {
-      "id": 2,
+      "id": "2",
       "fullName": "Nhân Viên Mẫu",
       "email": "staff@healthy.vn",
       "phone": "0900000002",
@@ -21,7 +21,7 @@
       "emailVerified": true
     },
     {
-      "id": 3,
+      "id": "3",
       "fullName": "Quản Lý Mẫu",
       "email": "manager@healthy.vn",
       "phone": "0900000003",
@@ -31,7 +31,7 @@
       "emailVerified": true
     },
     {
-      "id": 4,
+      "id": "4",
       "fullName": "Quản Trị Viên Mẫu",
       "email": "admin@healthy.vn",
       "phone": "0900000004",
@@ -41,7 +41,7 @@
       "emailVerified": true
     },
     {
-      "id": 5,
+      "id": "5",
       "fullName": "Tài Xế Mẫu",
       "email": "delivery@healthy.vn",
       "phone": "0900000005",
@@ -49,8 +49,40 @@
       "role": "delivery_partner",
       "status": "active",
       "emailVerified": true
+    },
+    {
+      "id": "abcd",
+      "fullName": "Nguyen Van B",
+      "email": "email@example.com",
+      "phone": "0827362514",
+      "password": "N8W8f8cumc!BhVi",
+      "role": "customer",
+      "status": "active",
+      "emailVerified": true
     }
   ],
-  "verificationTokens": [],
+  "verificationTokens": [
+    {
+      "id": "df69",
+      "userId": "abcd",
+      "code": "724633",
+      "expiresAt": "2026-10-12T02:56:20.549Z",
+      "used": false
+    },
+    {
+      "id": "15ee",
+      "userId": "abcd ",
+      "code": "130747",
+      "expiresAt": "2026-10-12T03:27:59.086Z",
+      "used": false
+    },
+    {
+      "id": "c908",
+      "userId": "abcd",
+      "code": "673366",
+      "expiresAt": "2026-10-12T03:54:12.496Z",
+      "used": true
+    }
+  ],
   "passwordResetTokens": []
 }

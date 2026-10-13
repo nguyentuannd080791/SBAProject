@@ -1,4 +1,4 @@
-import { connectionError } from "../utils/messages";
+import { connectionError } from "../../../shared/utils/messages";
 import { authDependencies } from "./authDependencies";
 
 const wrongCurrentPasswordError = "Mật khẩu hiện tại không đúng.";

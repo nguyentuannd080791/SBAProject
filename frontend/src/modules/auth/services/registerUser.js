@@ -1,5 +1,5 @@
 import { buildVerificationToken } from "../utils/verificationToken";
-import { connectionError } from "../utils/messages";
+import { connectionError } from "../../../shared/utils/messages";
 import { toNewCustomer } from "../utils/newCustomer";
 import { authDependencies } from "./authDependencies";
 

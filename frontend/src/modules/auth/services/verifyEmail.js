@@ -1,4 +1,4 @@
-import { connectionError } from "../utils/messages";
+import { connectionError } from "../../../shared/utils/messages";
 import { getCodeRejection } from "../utils/verificationToken";
 import { authDependencies } from "./authDependencies";
 

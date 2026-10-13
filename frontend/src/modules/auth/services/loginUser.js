@@ -1,5 +1,5 @@
 import { authApi } from "../api/authApi";
-import { connectionError } from "../utils/messages";
+import { connectionError } from "../../../shared/utils/messages";
 import { getLoginRejection } from "../utils/loginRules";
 import { toSessionUser } from "../utils/sessionUser";
 
