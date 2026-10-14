@@ -29,6 +29,11 @@ export function RegisterPage() {
       <p className="mt-3 mb-0 text-center">
         Đã có tài khoản? <Link to="/login">Đăng nhập</Link>
       </p>
+      <p className="mt-1 mb-0 text-center">
+        <Link to="/register-rhf" className="text-muted small">
+          Thử nghiệm phiên bản React Hook Form + Zod
+        </Link>
+      </p>
     </Card>
   );
 }

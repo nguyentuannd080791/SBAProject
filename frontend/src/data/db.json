@@ -49,9 +49,27 @@
       "role": "delivery_partner",
       "status": "active",
       "emailVerified": true
+    },
+    {
+      "fullName": "Nguyen Van Teo",
+      "email": "teonguyen@gmail.com",
+      "phone": "0827615372",
+      "password": "12345678a",
+      "role": "customer",
+      "status": "active",
+      "emailVerified": true,
+      "id": 6
     }
   ],
-  "verificationTokens": [],
+  "verificationTokens": [
+    {
+      "userId": 6,
+      "code": "252195",
+      "expiresAt": "2026-10-14T15:24:08.742Z",
+      "used": true,
+      "id": 1
+    }
+  ],
   "passwordResetTokens": [
     {
       "userId": 1,
@@ -76,9 +94,9 @@
       "id": 2
     },
     {
-      "token": "6c4ee3fb-3478-487d-80e1-cc8933a2b1d7",
-      "userId": 1,
-      "createdAt": "2026-10-14T14:44:52.955Z",
+      "token": "e13d91e8-0798-437e-a82e-da347958b05a",
+      "userId": 6,
+      "createdAt": "2026-10-14T15:09:52.016Z",
       "id": 3
     }
   ]
