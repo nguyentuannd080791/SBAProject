@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import { Card } from "react-bootstrap";
+import { authApi } from "../api/authApi";
 import { ResetPasswordForm } from "../components/ResetPasswordForm";
-import { resetPassword } from "../services/resetPassword";
 
 const requestedNotice =
   "Nếu email tồn tại trong hệ thống, mã đặt lại mật khẩu đã được gửi. Vui lòng kiểm tra email.";
@@ -18,7 +18,7 @@ export function ResetPasswordPage() {
   async function handleSubmit(values) {
     setSubmitError("");
     setIsSubmitting(true);
-    const result = await resetPassword(
+    const result = await authApi.resetPassword(
       values.email,
       values.code,
       values.password,

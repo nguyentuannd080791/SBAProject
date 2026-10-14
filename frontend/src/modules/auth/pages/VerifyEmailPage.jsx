@@ -1,9 +1,8 @@
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import { Card } from "react-bootstrap";
+import { authApi } from "../api/authApi";
 import { VerifyEmailForm } from "../components/VerifyEmailForm";
-import { resendVerification } from "../services/resendVerification";
-import { verifyEmail } from "../services/verifyEmail";
 import { validateEmail } from "../utils/validators";
 
 const registeredNotice =
@@ -23,7 +22,7 @@ export function VerifyEmailPage() {
     setNotice("");
     setSubmitError("");
     setIsSubmitting(true);
-    const result = await verifyEmail(values.email, values.code);
+    const result = await authApi.verifyEmail(values.email, values.code);
     setIsSubmitting(false);
     if (result.error) return setSubmitError(result.error);
     navigate("/login", { state: { notice: verifiedNotice } });
@@ -35,7 +34,7 @@ export function VerifyEmailPage() {
     setSubmitError(emailError);
     if (emailError) return;
     setIsSubmitting(true);
-    const result = await resendVerification(emailToResend);
+    const result = await authApi.resendVerification(emailToResend);
     setIsSubmitting(false);
     if (result.error) return setSubmitError(result.error);
     setNotice(resentNotice);

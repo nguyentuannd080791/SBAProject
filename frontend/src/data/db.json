@@ -1,17 +1,17 @@
 {
   "users": [
     {
-      "id": "1",
+      "id": 1,
       "fullName": "Khách Hàng Mẫu",
       "email": "customer@healthy.vn",
       "phone": "0900000001",
-      "password": "123456",
+      "password": "Passw123",
       "role": "customer",
       "status": "active",
       "emailVerified": true
     },
     {
-      "id": "2",
+      "id": 2,
       "fullName": "Nhân Viên Mẫu",
       "email": "staff@healthy.vn",
       "phone": "0900000002",
@@ -21,7 +21,7 @@
       "emailVerified": true
     },
     {
-      "id": "3",
+      "id": 3,
       "fullName": "Quản Lý Mẫu",
       "email": "manager@healthy.vn",
       "phone": "0900000003",
@@ -31,7 +31,7 @@
       "emailVerified": true
     },
     {
-      "id": "4",
+      "id": 4,
       "fullName": "Quản Trị Viên Mẫu",
       "email": "admin@healthy.vn",
       "phone": "0900000004",
@@ -41,7 +41,7 @@
       "emailVerified": true
     },
     {
-      "id": "5",
+      "id": 5,
       "fullName": "Tài Xế Mẫu",
       "email": "delivery@healthy.vn",
       "phone": "0900000005",
@@ -49,40 +49,37 @@
       "role": "delivery_partner",
       "status": "active",
       "emailVerified": true
-    },
-    {
-      "id": "abcd",
-      "fullName": "Nguyen Van B",
-      "email": "email@example.com",
-      "phone": "0827362514",
-      "password": "N8W8f8cumc!BhVi",
-      "role": "customer",
-      "status": "active",
-      "emailVerified": true
     }
   ],
-  "verificationTokens": [
+  "verificationTokens": [],
+  "passwordResetTokens": [
     {
-      "id": "df69",
-      "userId": "abcd",
-      "code": "724633",
-      "expiresAt": "2026-10-12T02:56:20.549Z",
-      "used": false
-    },
-    {
-      "id": "15ee",
-      "userId": "abcd ",
-      "code": "130747",
-      "expiresAt": "2026-10-12T03:27:59.086Z",
-      "used": false
-    },
-    {
-      "id": "c908",
-      "userId": "abcd",
-      "code": "673366",
-      "expiresAt": "2026-10-12T03:54:12.496Z",
-      "used": true
+      "userId": 1,
+      "code": "516481",
+      "expiresAt": "2026-10-14T14:59:03.778Z",
+      "used": true,
+      "id": 1
     }
   ],
-  "passwordResetTokens": []
+  "addresses": [],
+  "sessions": [
+    {
+      "token": "21f2fd77-fc1f-48d2-972b-7b47b9818b3c",
+      "userId": 1,
+      "createdAt": "2026-10-14T14:37:09.643Z",
+      "id": 1
+    },
+    {
+      "token": "bf301704-1b23-4cb9-b82e-342c19a90cda",
+      "userId": 1,
+      "createdAt": "2026-10-14T14:37:44.399Z",
+      "id": 2
+    },
+    {
+      "token": "6c4ee3fb-3478-487d-80e1-cc8933a2b1d7",
+      "userId": 1,
+      "createdAt": "2026-10-14T14:44:52.955Z",
+      "id": 3
+    }
+  ]
 }

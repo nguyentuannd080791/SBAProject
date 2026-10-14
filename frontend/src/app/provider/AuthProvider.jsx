@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { clearToken, saveToken } from "../../shared/api/tokenStorage";
 import { AuthContext } from "./AuthContext";
 import {
   clearSessionUser,
@@ -9,7 +10,8 @@ import {
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(loadSessionUser);
 
-  function login(sessionUser) {
+  function login(sessionUser, token) {
+    saveToken(token);
     saveSessionUser(sessionUser);
     setUser(sessionUser);
   }
@@ -21,6 +23,7 @@ export function AuthProvider({ children }) {
   }
 
   function logout() {
+    clearToken();
     clearSessionUser();
     setUser(null);
   }

@@ -1,13 +1,11 @@
 import { useState } from "react";
 import { Card } from "react-bootstrap";
-import { useAuth } from "../../../app/provider/useAuth";
+import { authApi } from "../api/authApi";
 import { ChangePasswordForm } from "../components/ChangePasswordForm";
-import { changePassword } from "../services/changePassword";
 
 const changedNotice = "Đổi mật khẩu thành công.";
 
 export function ChangePasswordPage() {
-  const { user } = useAuth();
   const [formKey, setFormKey] = useState(0);
   const [notice, setNotice] = useState("");
   const [submitError, setSubmitError] = useState("");
@@ -17,8 +15,7 @@ export function ChangePasswordPage() {
     setNotice("");
     setSubmitError("");
     setIsSubmitting(true);
-    const result = await changePassword(
-      user.email,
+    const result = await authApi.changePassword(
       values.currentPassword,
       values.newPassword,
     );

@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { Card } from "react-bootstrap";
+import { authApi } from "../api/authApi";
 import { RegisterForm } from "../components/RegisterForm";
-import { registerUser } from "../services/registerUser";
 
 export function RegisterPage() {
   const navigate = useNavigate();
@@ -12,10 +12,10 @@ export function RegisterPage() {
   async function handleSubmit(values) {
     setSubmitError("");
     setIsSubmitting(true);
-    const result = await registerUser(values);
+    const result = await authApi.register(values);
     setIsSubmitting(false);
     if (result.error) return setSubmitError(result.error);
-    navigate("/verify-email", { state: { email: result.email } });
+    navigate("/verify-email", { state: { email: result.data.email } });
   }
 
   return (

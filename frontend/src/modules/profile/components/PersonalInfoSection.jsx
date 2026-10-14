@@ -1,15 +1,14 @@
 import { useEffect, useState } from "react";
 import { Alert, Button, Card, Spinner } from "react-bootstrap";
 import { useAuth } from "../../../app/provider/useAuth";
-import { getProfile } from "../services/getProfile";
-import { updateProfile } from "../services/updateProfile";
+import { profileApi } from "../api/profileApi";
 import { ProfileForm } from "./ProfileForm";
 import { ProfileSummary } from "./ProfileSummary";
 
 const savedNotice = "Đã lưu thông tin cá nhân.";
 
 export function PersonalInfoSection() {
-  const { user, updateUser } = useAuth();
+  const { updateUser } = useAuth();
   const [profile, setProfile] = useState(null);
   const [loadError, setLoadError] = useState("");
   const [isEditing, setIsEditing] = useState(false);
@@ -18,11 +17,11 @@ export function PersonalInfoSection() {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
-    getProfile(user.id).then((result) => {
+    profileApi.get().then((result) => {
       if (result.error) setLoadError(result.error);
-      else setProfile(result.profile);
+      else setProfile(result.data);
     });
-  }, [user.id]);
+  }, []);
 
   function startEditing() {
     setNotice("");
@@ -33,11 +32,11 @@ export function PersonalInfoSection() {
   async function handleSubmit(values) {
     setSubmitError("");
     setIsSubmitting(true);
-    const result = await updateProfile(user.id, values);
+    const result = await profileApi.update(values);
     setIsSubmitting(false);
     if (result.error) return setSubmitError(result.error);
-    setProfile(result.profile);
-    updateUser({ fullName: result.profile.fullName });
+    setProfile(result.data);
+    updateUser({ fullName: result.data.fullName });
     setIsEditing(false);
     setNotice(savedNotice);
   }

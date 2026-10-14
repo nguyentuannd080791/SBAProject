@@ -1,28 +1,49 @@
+import { callApi } from "../../../shared/api/callApi";
 import { httpClient } from "../../../shared/api/httpClient";
 
 export const authApi = {
-  async findUserByCredentials(email, password) {
-    const response = await httpClient.get("/users", {
-      params: { email, password },
-    });
-    return response.data[0] ?? null;
+  login(email, password) {
+    return callApi(() => httpClient.post("/auth/login", { email, password }));
   },
 
-  async findUserByEmail(email) {
-    const response = await httpClient.get("/users", { params: { email } });
-    return response.data[0] ?? null;
+  logout() {
+    return callApi(() => httpClient.post("/auth/logout"));
   },
 
-  async createUser(user) {
-    const response = await httpClient.post("/users", user);
-    return response.data;
+  register({ fullName, email, phone, password }) {
+    return callApi(() =>
+      httpClient.post("/auth/register", { fullName, email, phone, password }),
+    );
   },
 
-  async markEmailVerified(userId) {
-    await httpClient.patch(`/users/${userId}`, { emailVerified: true });
+  verifyEmail(email, code) {
+    return callApi(() =>
+      httpClient.post("/auth/verify-email", { email, code }),
+    );
   },
 
-  async updatePassword(userId, password) {
-    await httpClient.patch(`/users/${userId}`, { password });
+  resendVerification(email) {
+    return callApi(() =>
+      httpClient.post("/auth/resend-verification", { email }),
+    );
+  },
+
+  forgotPassword(email) {
+    return callApi(() => httpClient.post("/auth/forgot-password", { email }));
+  },
+
+  resetPassword(email, code, password) {
+    return callApi(() =>
+      httpClient.post("/auth/reset-password", { email, code, password }),
+    );
+  },
+
+  changePassword(currentPassword, newPassword) {
+    return callApi(() =>
+      httpClient.post("/auth/change-password", {
+        currentPassword,
+        newPassword,
+      }),
+    );
   },
 };

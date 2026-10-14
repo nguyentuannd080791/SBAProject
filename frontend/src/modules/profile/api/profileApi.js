@@ -1,13 +1,12 @@
+import { callApi } from "../../../shared/api/callApi";
 import { httpClient } from "../../../shared/api/httpClient";
 
 export const profileApi = {
-  async findUserById(userId) {
-    const response = await httpClient.get("/users", { params: { id: userId } });
-    return response.data[0] ?? null;
+  get() {
+    return callApi(() => httpClient.get("/profile"));
   },
 
-  async updateUser(userId, changes) {
-    const response = await httpClient.patch(`/users/${userId}`, changes);
-    return response.data;
+  update({ fullName, phone }) {
+    return callApi(() => httpClient.patch("/profile", { fullName, phone }));
   },
 };

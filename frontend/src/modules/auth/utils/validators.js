@@ -1,3 +1,4 @@
+import { collectErrors } from "../../../shared/utils/collectErrors";
 import {
   validateFullName,
   validatePhone,
@@ -5,14 +6,6 @@ import {
 
 const emailPattern = /^\S+@\S+\.\S+$/;
 const codePattern = /^\d{6}$/;
-
-function collectErrors(messagesByField) {
-  const errors = {};
-  for (const [field, message] of Object.entries(messagesByField)) {
-    if (message) errors[field] = message;
-  }
-  return errors;
-}
 
 export function validateEmail(value) {
   const email = value.trim();

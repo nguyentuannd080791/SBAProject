@@ -2,8 +2,8 @@ import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import { Card } from "react-bootstrap";
 import { useAuth } from "../../../app/provider/useAuth";
+import { authApi } from "../api/authApi";
 import { LoginForm } from "../components/LoginForm";
-import { loginUser } from "../services/loginUser";
 
 export function LoginPage() {
   const { login } = useAuth();
@@ -15,10 +15,10 @@ export function LoginPage() {
   async function handleSubmit({ email, password }) {
     setSubmitError("");
     setIsSubmitting(true);
-    const result = await loginUser(email, password);
+    const result = await authApi.login(email, password);
     setIsSubmitting(false);
     if (result.error) return setSubmitError(result.error);
-    login(result.user);
+    login(result.data.user, result.data.token);
     navigate("/", { replace: true });
   }
 

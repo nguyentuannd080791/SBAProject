@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { Card } from "react-bootstrap";
+import { authApi } from "../api/authApi";
 import { ForgotPasswordForm } from "../components/ForgotPasswordForm";
-import { requestPasswordReset } from "../services/requestPasswordReset";
 
 export function ForgotPasswordPage() {
   const navigate = useNavigate();
@@ -12,7 +12,7 @@ export function ForgotPasswordPage() {
   async function handleSubmit({ email }) {
     setSubmitError("");
     setIsSubmitting(true);
-    const result = await requestPasswordReset(email);
+    const result = await authApi.forgotPassword(email);
     setIsSubmitting(false);
     if (result.error) return setSubmitError(result.error);
     navigate("/reset-password", { state: { email } });

@@ -1,12 +1,14 @@
 import { Link, useNavigate } from "react-router";
 import { Button, Nav } from "react-bootstrap";
+import { authApi } from "../../modules/auth/api/authApi";
 import { useAuth } from "../provider/useAuth";
 
 export function UserMenu() {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
 
-  function handleLogout() {
+  async function handleLogout() {
+    await authApi.logout();
     logout();
     navigate("/login");
   }
